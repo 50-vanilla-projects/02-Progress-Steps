@@ -10,5 +10,45 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Lora, serif;
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+}
+
+.number {
+  width: 5vw;
+  height: 5vw;
+  border: 3pt solid gray;
+  border-radius: 50%;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.number p {
+  position: relative;
+  text-align: center;
+  bottom: 3.2vw;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.top {
+  border-bottom: 3pt solid gray;
 }
