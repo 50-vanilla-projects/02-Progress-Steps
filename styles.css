@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --disabled-background-gray: #cccccc;
+  --disabled-text-gray: #737373;
+  --active-blue: dodgerblue;
+}
+
 body {
   display: flex;
   flex-direction: column;
