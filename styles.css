@@ -37,11 +37,12 @@ body {
 .number {
   width: 5vw;
   height: 5vw;
-  background-color: lightgray;
-  border: 3pt solid gray;
+  background-color: var(--disabled-background-gray);
+  border: 3pt solid var(--disabled-text-gray);
   border-radius: 50%;
   font-size: 3em;
   font-weight: 700;
+  color: var(--disabled-text-gray);
   transition: background-color 200ms;
   transition: border 200ms;
 }
@@ -54,7 +55,8 @@ body {
 
 .number.active {
   background-color: white;
-  border: 3pt solid dodgerblue;
+  border: 5pt solid var(--active-blue);
+  color: black;
 }
 
 .lines {
@@ -64,12 +66,12 @@ body {
 }
 
 .top {
-  border-bottom: 3pt solid gray;
+  border-bottom: 3pt solid var(--disabled-text-gray);
   transition: border-bottom 200ms;
 }
 
 .top.active {
-  border-bottom: 3pt solid dodgerblue;
+  border-bottom: 3pt solid var(--active-blue);
 }
 
 .buttons {
@@ -88,8 +90,10 @@ body {
   padding: 0.5vw;
   border-radius: 30px;
   background-color: dodgerblue;
+  cursor: pointer;
 }
 
 .button.disabled {
   background-color: lightgray;
+  color: var(--disabled-text-gray);
 }
