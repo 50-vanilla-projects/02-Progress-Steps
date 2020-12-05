@@ -5,3 +5,6 @@ const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
 
 
+buttonsContainer.addEventListener('click', e => {
+
+
