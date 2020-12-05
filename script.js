@@ -1,3 +1,5 @@
+/* JavaScript file for the functionality of my "Project 02 - Progress Steps" program. */
+
 const numbers = document.querySelectorAll('.number');
 const lines = document.querySelectorAll('.top');
 const buttonsContainer = document.querySelector('.buttons');
