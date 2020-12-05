@@ -92,4 +92,5 @@ body {
 .button.disabled {
   background-color: lightgray;
   color: var(--disabled-text-gray);
+  cursor: not-allowed;
 }
