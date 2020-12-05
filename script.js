@@ -1,5 +1,5 @@
 const numbers = document.querySelectorAll('.number');
-const lines = document.querySelectorAll('.lines');
+const lines = document.querySelectorAll('.top');
 const buttonsContainer = document.querySelector('.buttons');
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
@@ -16,6 +16,7 @@ buttonsContainer.addEventListener('click', e => {
     if (count > 0 && count < 3) {
       console.log('this number active, increase count');
       numbers[count].classList.add('active');
+      lines[count-1].classList.add('active');
       ++count;
     }
     else if (count == 0) {
@@ -27,6 +28,7 @@ buttonsContainer.addEventListener('click', e => {
     else if (count == 3) {
       console.log('this number active, increase count');
       numbers[count].classList.add('active');
+      lines[count-1].classList.add('active');
       ++count;
 
       console.log('next button toggled')
@@ -46,6 +48,7 @@ buttonsContainer.addEventListener('click', e => {
       console.log('decrease count, this number inactive');
       --count;
       numbers[count].classList.remove('active');
+      lines[count-1].classList.remove('active');
     }
     else if (count == 1) {
       --count;
@@ -63,7 +66,9 @@ buttonsContainer.addEventListener('click', e => {
       console.log('next button toggled, decrease count, this number inactive')
       toggleNextButton();
       --count;
-      numbers[count].classList.remove('active')
+      numbers[count].classList.remove('active');
+      lines[count-1].classList.remove('active');
+
     }
   }
 })
