@@ -38,6 +38,36 @@ buttonsContainer.addEventListener('click', e => {
     console.log('current count: ' + count)
   }
 
+  /* previous button clicked */
+  else {
+    console.log('previous button clicked');
+    console.log('current count: ' + count);
+    if (count > 1 && count < 4) {
+      console.log('decrease count, this number inactive');
+      --count;
+      numbers[count].classList.remove('active');
+    }
+    else if (count == 1) {
+      --count;
+      console.log('decrease count, this number inactive');
+      numbers[count].classList.remove('active');
+
+
+      console.log('previous button toggled')
+      togglePreviousButton();
+    }
+    else if (count == -1) {
+      console.log('action disabled');
+    }
+    else if (count == 4) {
+      console.log('next button toggled, decrease count, this number inactive')
+      toggleNextButton();
+      --count;
+      numbers[count].classList.remove('active')
+    }
+  }
+})
+
 function toggleNextButton() {
   if (nextButton.classList.contains('disabled')) {
     nextButton.classList.remove('disabled');
