@@ -4,7 +4,7 @@ const buttonsContainer = document.querySelector('.buttons');
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
 
-var count = 0;
+var count = 1; // equals number of numbers active
 
 buttonsContainer.addEventListener('click', e => {
 
@@ -13,20 +13,21 @@ buttonsContainer.addEventListener('click', e => {
     console.log('next button clicked');
     console.log('current count: ' + count);
 
-    if (count > 0 && count < 3) {
-      console.log('this number active, increase count');
+    if (count > 1 && count < 3) {
+      console.log('this number active, draw line, increase count');
       numbers[count].classList.add('active');
       lines[count-1].classList.add('active');
       ++count;
     }
-    else if (count == 0) {
-      console.log('previous button toggled, this number active, increase count');
+    else if (count == 1) {
+      console.log('previous button toggled, this number active, draw line, increase count');
       togglePreviousButton();
       numbers[count].classList.add('active');
+      lines[count-1].classList.add('active');
       ++count;
     }
     else if (count == 3) {
-      console.log('this number active, increase count');
+      console.log('this number active, draw line, increase count');
       numbers[count].classList.add('active');
       lines[count-1].classList.add('active');
       ++count;
@@ -44,22 +45,20 @@ buttonsContainer.addEventListener('click', e => {
   else {
     console.log('previous button clicked');
     console.log('current count: ' + count);
-    if (count > 1 && count < 4) {
+    if (count > 2 && count < 4) {
       console.log('decrease count, this number inactive');
       --count;
       numbers[count].classList.remove('active');
       lines[count-1].classList.remove('active');
     }
-    else if (count == 1) {
+    else if (count == 2) {
+      console.log('decrease count, this number inactive, line cleared, previous button toggled');
       --count;
-      console.log('decrease count, this number inactive');
       numbers[count].classList.remove('active');
-
-
-      console.log('previous button toggled')
+      lines[count-1].classList.remove('active');
       togglePreviousButton();
     }
-    else if (count == -1) {
+    else if (count == 1) {
       console.log('action disabled');
     }
     else if (count == 4) {
