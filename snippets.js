@@ -1,1 +1,0 @@
-line[activeNumbers].classList.add('active');
