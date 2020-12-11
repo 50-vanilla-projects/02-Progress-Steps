@@ -4,7 +4,7 @@ const buttonsContainer = document.querySelector('.buttons');
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
 
-var count = 0;
+var count = 1;
 
 buttonsContainer.addEventListener('click', e => {
 
@@ -13,13 +13,13 @@ buttonsContainer.addEventListener('click', e => {
     console.log('next button clicked');
     console.log('current count: ' + count);
 
-    if (count > 0 && count < 3) {
+    if (count > 1 && count < 3) {
       console.log('this number active, increase count');
       numbers[count].classList.add('active');
       lines[count-1].classList.add('active');
       ++count;
     }
-    else if (count == 0) {
+    else if (count == 1) {
       console.log('previous button toggled, this number active, increase count');
       togglePreviousButton();
       numbers[count].classList.add('active');
@@ -59,7 +59,7 @@ buttonsContainer.addEventListener('click', e => {
       console.log('previous button toggled')
       togglePreviousButton();
     }
-    else if (count == -1) {
+    else if (count == 0) {
       console.log('action disabled');
     }
     else if (count == 4) {
