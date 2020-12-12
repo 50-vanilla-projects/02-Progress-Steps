@@ -1,78 +1,64 @@
+// selectors needed
 const numbers = document.querySelectorAll('.number');
 const lines = document.querySelectorAll('.top');
 const buttonsContainer = document.querySelector('.buttons');
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
 
-var count = 1;
+var count = 0; // initial state
 
+// functionality
 buttonsContainer.addEventListener('click', e => {
 
   /* next button clicked */
   if (e.target.id == 'next') {
-    console.log('next button clicked');
-    console.log('current count: ' + count);
-
-    if (count > 1 && count < 3) {
-      console.log('this number active, increase count');
-      numbers[count].classList.add('active');
-      lines[count-1].classList.add('active');
-      ++count;
+    if (count < 0) { count == 0 }
+    if (count > 3) { count == 3 }
+    if (count == 0) {
+      numbers[count+1].classList.add('active');
+      lines[count].classList.add('active');
+      togglePreviousButton();
+      count++;
     }
     else if (count == 1) {
-      console.log('previous button toggled, this number active, increase count');
-      togglePreviousButton();
-      numbers[count].classList.add('active');
-      ++count;
+      numbers[count+1].classList.add('active');
+      lines[count].classList.add('active');
+      count++;
     }
-    else if (count == 3) {
-      console.log('this number active, increase count');
-      numbers[count].classList.add('active');
-      lines[count-1].classList.add('active');
-      ++count;
-
-      console.log('next button toggled')
+    else if (count == 2) {
+      numbers[count+1].classList.add('active');
+      lines[count].classList.add('active');
       toggleNextButton();
-
-    } else if (count == 4) {
-      console.log('action disabled')
+      count++
     }
-    console.log('current count: ' + count)
-  }
-
+  } // end next button clicked
+    
   /* previous button clicked */
   else {
-    console.log('previous button clicked');
-    console.log('current count: ' + count);
-    if (count > 1 && count < 4) {
-      console.log('decrease count, this number inactive');
-      --count;
+    if (count < 0) { count == 0 }
+    if (count > 3) { count == 3 }
+    if (count == 1) {
       numbers[count].classList.remove('active');
       lines[count-1].classList.remove('active');
-    }
-    else if (count == 1) {
-      --count;
-      console.log('decrease count, this number inactive');
-      numbers[count].classList.remove('active');
-
-
-      console.log('previous button toggled')
       togglePreviousButton();
+      --count;
     }
-    else if (count == 0) {
-      console.log('action disabled');
+    else if (count == 2) {
+      numbers[count].classList.remove('active');
+      lines[count-1].classList.remove('active');
+      --count;
     }
-    else if (count == 4) {
-      console.log('next button toggled, decrease count, this number inactive')
+    else if (count == 3) {
+      numbers[count].classList.remove('active');
+      lines[count-1].classList.remove('active');
       toggleNextButton();
       --count;
-      numbers[count].classList.remove('active');
-      lines[count-1].classList.remove('active');
-
     }
-  }
-})
+  } // end previous button clicked
+}) // listen to button clicked
 
+
+// toggle functions
 function toggleNextButton() {
   if (nextButton.classList.contains('disabled')) {
     nextButton.classList.remove('disabled');
@@ -84,10 +70,9 @@ function toggleNextButton() {
 
 function togglePreviousButton() {
   if (previousButton.classList.contains('disabled')) {
-    previousButton.classList.remove('disabled');
+    previousButton.classList.remove('disabled')
   }
   else {
     previousButton.classList.add('disabled');
   }
 }
-
